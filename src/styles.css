@@ -1,12 +1,23 @@
 /* ---------------------------------------- */
 /* General Styling */
 /* --------------------------------------- */
+:root {
+    --main-color: rgb(53, 1, 1);
+    --main-weight: 800;
+    --main-shadow: -0.05rem 0.05rem 0.2rem black;
+    --shadow-color: rgb(0, 238, 255);
+    --backgroud-text-home: linear-gradient(to right, #ff7e5f, #feb47b); 
+    --banner-border: 2px solid rgb(78, 1, 1);
+}
+
 body {
-    background-color: rgb(49, 49, 211);
+    font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 800;
     height: 100vh;
     margin: 0;
     padding: 0;
     display: flex;
+    background-color: rgb(255, 127, 80, 0.5);
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -32,12 +43,16 @@ body {
     justify-content: center;
 }
 
+#home-btn {
+    
+}
+
 #content {
     display: flex;
     flex-direction: column;
     width: 95vw;
     height: 90vh;
-    background-color: rgb(255, 127, 80, 0.5);
+    background-color: rgba(255, 2, 1, 0.3);
     border-radius: 1rem;
     
 }
@@ -81,37 +96,113 @@ Home Page styling
 #top-left.home {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
 }
 
 .home#top-text {
-    background-color: rgb(226, 43, 43);
+    color: var(--main-color);
+    font-weight: var(--main-weight);
     border-radius: 2rem;
     font-size: 5rem;
+    text-shadow: var(--main-shadow);
     margin: 0px;
+    padding: 0.5rem;
+    background-image: var(--backgroud-text-home);
+        text-shadow: var(--main-shadow);
 }
 
 .home#top-text-plus {
-    background-color: red;
-    color: black;
+    font-size: 1.2rem;
+    color: var(--main-color);
+    font-weight: var(--main-weight);
+    display: flex;
+    padding: 0.5rem;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    margin: 0;
+    position: relative;
+    bottom: 1rem;
+    background-image: var(--backgroud-text-home);
+        text-shadow: var(--main-shadow);
 }
 
 
-.logo {
+.home#logo {
     width: 10rem;
+    transition: transform 2.5s ease;
+}
+
+.home#logo:hover {
+    transform: rotate(360deg);
+}
+
+.home#middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+}
+
+.cookie-img {
+    object-fit: cover;
+    position: relative;
+    width: 29rem;
+    height: 29rem;
+    border-radius: 2rem;
+
+    
 }
 
 .home#middle-text {
-    width: 10rem;
-    height: 10rem;
-    background-color: blueviolet;
+    font-size: 1.5rem;
+    width: fit-content;
+    color: var(--main-color);
+    font-weight: var(--main-weight);
+    margin: 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-image: var(--backgroud-text-home);
+        text-shadow: var(--main-shadow);
 }
 
 .home#bottom-text {
-    width: 10rem;
-    height: 10rem;
-    background-color: blueviolet;
+    width: fit-content;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    color: var(--main-color);
+    font-weight: var(--main-weight);
+    margin: 0;
+
+    border-radius: 0.5rem;
+    background-image: var(--backgroud-text-home);
+        text-shadow: var(--main-shadow);
 }
 
+
+.home#bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home#show-menu-btn {
+    font-size: 1.8rem;
+    font-weight: var(--main-weight);
+    border-radius: 0.5rem;
+    border: 0.2rem solid brown;
+    background-image: var(--backgroud-text-home);
+        text-shadow: var(--main-shadow);
+    color: var(--main-color);
+    transition: transform 0.5s ease;
+
+}
+
+#show-menu-btn:hover{
+    transform: scale(1.2)
+    }
 
 /* --------------------------------------
 Menu Page styling
@@ -126,25 +217,137 @@ Menu Page styling
 }
 
 .menu#recipes {
-    border: 4px solid blue;
+    position: relative;
+    /* border: 4px solid blue; */
     grid-row: 1 / 4;
     grid-column: 1;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.menu#item-one,
+.menu#item-two,
+.menu#item-three {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff7e5f;
+    border-radius: 8rem;
+    position: relative;
+}
+
+.menu#text-one,
+.menu#text-two,
+.menu#text-three {
+    position: relative; /* Ensure the text is positioned relative to the container */
+    font-size: 1.8rem;
+    color: var(--main-color);
+    text-shadow: var(--main-shadow);
+    background-image: var(--backgroud-text-home);
+    border: 0.2rem solid brown;
+    border-radius: 2rem;
+    pad: 0.5rem;
+    font-weight: bold;
+
+}
+
+.menu#item-one:hover .cookie-item,
+.menu#item-two:hover .cookie-item,
+.menu#item-three:hover .cookie-item,
+.menu#text-one:hover ~ cookie-item,
+.menu#text-two:hover ~ cookie-item,
+.menu#text-three:hover ~ cookie-item{
+        transform: translate(-50%, -50%) rotate(360deg);
+}
+
+
+
+
+.cookie-item {
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    transition: transform 2.5s ease;
+}
+
+.cookie-item:hover {
+    transform: translate(-50%, -50%) rotate(360deg);
+}
+
+#cookie-two {
+    margin-top: -0.8rem;
+     width: 20rem;
+    height: 20rem;
+}
+
+.menu#first-half,
+.menu#second-half,
+.menu#third {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.menu#first-half > *,
+.menu#second-half > *,
+.menu#third > *{
+    margin: 0;
 }
 
 .menu#first-half {
-    border: 4px solid red;
+    border: var(--banner-border);
     grid-row: span 1;
     grid-column: 2;
 }
 
+.menu.title,
+.menu.par {
+    width: 60vw;
+    display: inline-block;
+    background-image: var(--backgroud-text-home);
+    justify-self: start;
+    /* width: fit-content; */
+    color: var(--main-color);
+    text-shadow: var(--main-shadow);
+    top: 2rem;
+    position: relative;
+    text-align: center;
+    padding: 0.2rem;
+    border-radius: 1rem;
+}
+
+.banner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+}
+
+.menu.title{
+    font-size: 3rem;
+    width: 40vw;
+}
+
+.menu.par{
+    font-size: 2rem;
+}
+
 .menu#second-half {
-    border: 4px solid yellowgreen;
+    border: var(--banner-border);
     grid-area: span 1;
     grid-column: 2;
 }
 
 .menu#third {
-    border: 4px solid grey;
+    border: var(--banner-border);
     grid-row: 3;
     grid-column: 2;
 }
@@ -153,12 +356,6 @@ Menu Page styling
 /* --------------------------------------
 About Page styling
 -------------------------------------- */
-
-.cookie-img {
-    width: 10rem;
-    height: 10rem;
-}
-
 .about#top-text{
     width: 10rem;
     height: 10rem;

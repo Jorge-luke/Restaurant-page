@@ -4,12 +4,7 @@ import { homePage } from "./home.js";
 import { menuPage } from "./menu.js";
 import { aboutPage } from "./about.js";
 
-console.log("Hello Webpack! One");
-
-console.log("Hello Webpack! One");
-
 const content = document.querySelector("#content");
-
 const body = document.querySelector('body');
 
 // IMAGE ADDITION
@@ -40,28 +35,26 @@ createElements();
 homePage();
 
 const homeBtn = document.querySelector("#home-btn");
+
 const menuBtn = document.querySelector("#menu-btn");
+
 const aboutBtn = document.querySelector("#about-btn");
 
 homeBtn.addEventListener("click", ()=>{
-    // missing code to clear all html before loading homePage
-    content.innerHTML = "";
+    content.replaceChildren();
     createElements();
     homePage();
 });
 
-menuBtn.addEventListener("click", ()=>{
-    // missing code to clear all html before loading menuPage
-    content.innerHTML = "";
+menuBtn.addEventListener("click", function showMenu(){
+    content.replaceChildren();
     createElements();
     menuPage();
-});
-
-
+}
+);
 
 aboutBtn.addEventListener("click", ()=>{
-    // missing code to clear all html before loading aboutPage
-    content.innerHTML = "";
+    content.replaceChildren();
     createElements();
     aboutPage();
 });
