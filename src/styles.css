@@ -10,10 +10,15 @@
     --banner-border: 2px solid rgb(78, 1, 1);
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-weight: 800;
     height: 100vh;
+    width: 100vw;
     margin: 0;
     padding: 0;
     display: flex;
@@ -25,36 +30,59 @@ body {
 }
 
 .background {
-    position: absolute;
+    position: fixed;
     height: 100vh;
     width: 100vw;
     margin: 0;
     left: 0;
     top: 0;
     z-index: -1;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #header {
-    background-color: bisque;
-    border: 0.1rem solid black;
+    background-color: rgba(245, 185, 125, 1);
+    border-radius: 1rem;
     width: 95vw;
     height: 5vh;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
-#home-btn {
-    
+.button {
+    align-self: center;
+    font-size: 2rem;
+    height: 3.2rem;
+    background-color: rgba(205, 145, 110, 1);
+    color: rgba(53, 1, 1, 1);
+    font-weight: 900;
+    border: none;
+    border-radius: 0.5rem;
+    transition: font-size 1.5s ease;
+}
+
+.button:hover {
+   font-size: 2.5rem;
 }
 
 #content {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 95vw;
     height: 90vh;
-    background-color: rgba(255, 2, 1, 0.3);
+    background-color: rgba(209, 58, 58, 0.3);
     border-radius: 1rem;
-    
+}
+
+#content > * {
+    flex: 1;
+    width: 100%;
 }
 
 #top {
@@ -92,7 +120,6 @@ Home Page styling
     gap: 2rem;
 }
 
-
 #top-left.home {
     display: flex;
     flex-direction: column;
@@ -129,7 +156,6 @@ Home Page styling
         text-shadow: var(--main-shadow);
 }
 
-
 .home#logo {
     width: 10rem;
     transition: transform 2.5s ease;
@@ -143,16 +169,15 @@ Home Page styling
     display: flex;
     flex-direction: column;
     align-items: center ;
+    gap: 1rem;
 }
 
 .cookie-img {
     object-fit: cover;
     position: relative;
-    width: 29rem;
-    height: 29rem;
+    width: 40vw;
+    height: 40vh;
     border-radius: 2rem;
-
-    
 }
 
 .home#middle-text {
@@ -174,12 +199,10 @@ Home Page styling
     color: var(--main-color);
     font-weight: var(--main-weight);
     margin: 0;
-
     border-radius: 0.5rem;
     background-image: var(--backgroud-text-home);
         text-shadow: var(--main-shadow);
 }
-
 
 .home#bottom {
     display: flex;
@@ -197,7 +220,6 @@ Home Page styling
         text-shadow: var(--main-shadow);
     color: var(--main-color);
     transition: transform 0.5s ease;
-
 }
 
 #show-menu-btn:hover{
@@ -249,7 +271,6 @@ Menu Page styling
     border-radius: 2rem;
     pad: 0.5rem;
     font-weight: bold;
-
 }
 
 .menu#item-one:hover .cookie-item,
@@ -260,9 +281,6 @@ Menu Page styling
 .menu#text-three:hover ~ cookie-item{
         transform: translate(-50%, -50%) rotate(360deg);
 }
-
-
-
 
 .cookie-item {
     position: absolute;
@@ -293,7 +311,10 @@ Menu Page styling
     align-items: center;
     position: relative;
     align-items: center;
+    overflow: hidden;
+    overflow-y: auto;
     /* justify-content: center; */
+    box-sizing: border-box;
 }
 
 .menu#first-half > *,
@@ -328,16 +349,19 @@ Menu Page styling
     position: absolute;
     width: 100%;
     height: 100%;
-
 }
 
 .menu.title{
-    font-size: 3rem;
+    /* font-size: 2.5rem; */
+    font-size: clamp(2rem, 4rem, 4vh);
     width: 40vw;
 }
 
 .menu.par{
-    font-size: 2rem;
+    /* font-size: 1.7rem; */
+    font-size: clamp(1.5rem, 3rem, 3vh);
+    overflow: hidden;
+    
 }
 
 .menu#second-half {
@@ -352,26 +376,58 @@ Menu Page styling
     grid-column: 2;
 }
 
-
 /* --------------------------------------
 About Page styling
 -------------------------------------- */
-.about#top-text{
-    width: 10rem;
-    height: 10rem;
-    background-color: blue;
+
+#content.about{ 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    height: 90vh;
+    padding: 5rem;
+    overflow: auto;
 }
 
-.about#middle-text{
-    width: 10rem;
-    height: 10rem;
-    background-color: blueviolet;
+.element.about {
+    display: flex;
+    gap: 0.5rem;
+    height: fit-content;
+    background-color: rgba(229, 184, 184, 0.5);
+    padding: 0.4rem;
+    border-radius: 1rem;
 }
 
-.about#bottom-text{
-    width: 10rem;
-    height: 10rem;
-    background-color: blueviolet;
+.about.title {
+    background-image: var(--backgroud-text-home);
+    font-size: 3rem;
+    margin: 0;
+    border-radius: 1rem;
+    padding: 0.5rem;
 }
 
+.about.text {
+    background-image: var(--backgroud-text-home);
+    font-size: 2rem;
+    margin: 0;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
 
+.about#top{
+    display: flex;
+    flex-direction: column;
+}
+
+.about#middle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about#bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

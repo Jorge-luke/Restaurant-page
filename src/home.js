@@ -4,6 +4,7 @@ import cookieImg from "./img/home-img.jpg";
 import { menuPage } from "./menu.js";
 export function homePage (){
     content.classList.toggle('menu', false);
+    content.classList.toggle('about', false);
 
     //Top portion of the Home page
     const top = document.querySelector("#top");

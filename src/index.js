@@ -35,10 +35,13 @@ createElements();
 homePage();
 
 const homeBtn = document.querySelector("#home-btn");
+homeBtn.classList.add('button');
 
 const menuBtn = document.querySelector("#menu-btn");
+menuBtn.classList.add('button');
 
 const aboutBtn = document.querySelector("#about-btn");
+aboutBtn.classList.add('button');
 
 homeBtn.addEventListener("click", ()=>{
     content.replaceChildren();

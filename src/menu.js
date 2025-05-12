@@ -11,6 +11,9 @@ export function menuPage(){
     content.classList.add('menu');
     content.innerHTML = "";
 
+    content.classList.toggle('home', false);
+    content.classList.toggle('about', false);
+
     function firstText(){
         if(!currentBanner.includes("chocolate")){
             const firstTitle = document.createElement('h2');
@@ -132,7 +135,6 @@ export function menuPage(){
     text1.textContent = "Chocolate Chips"
     item1.appendChild(text1);
 
-
     const item2 = document.createElement('div');
     item2.id = "item-two";
     item2.classList.add("menu");
@@ -180,18 +182,5 @@ export function menuPage(){
     text2.addEventListener("click", secondText);
 
     item3.addEventListener("click", thirdText);
-    text3.addEventListener("click", thirdText);
-
-
-  
+    text3.addEventListener("click", thirdText);  
 }
-
-// MENU 
-// BUTTONS 
-// FUNCTIONS
-
-let currentRecipe = false;
-
-
-
-
